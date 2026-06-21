@@ -12,7 +12,7 @@
         <h2>Jupyter notebooks</h2>
         <ul>
             {% for file in listIpynb %}
-                <li><a href="/assets/ipynb{{ file.url.split('.')[0] }}">{{ file.name }}</a></li>
+                <li><a href="/assets/ipynb{{ file.name.split('.')[0] }}">{{ file.name }}</a></li>
             {% endfor %}
         </ul>
         {% include "footer.njk" %}
