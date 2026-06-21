@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <div class="container">
+        {% include "header.njk" %}
+        <h2>Jupyter notebooks</h2>
+        <ul>
+            {% for file in listIpynb %}
+                <li><a href="/assets/ipynb{{ file.url.split('.')[0] }}">{{ file.name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% include "footer.njk" %}
+    </div>
+</body>
+</html>
