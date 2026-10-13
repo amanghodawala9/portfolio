@@ -4,4 +4,5 @@ layout: layout.njk
 ---
 
 ## How to contact?
-- email: ghodawalaaman@tutamail.com
+
+- Email: [ghodawalaaman@tutamail.com](mailto:ghodawalaaman@tutamail.com)

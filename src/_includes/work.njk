@@ -1,20 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href={{ "/assets/style.css" | url }}>
+    <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
 </head>
 <body>
     <div class="container">
         {% include "header.njk" %}
-        <h2>Jupyter notebooks</h2>
-        <ul>
-            {% for file in listIpynb %}
-                <li><a href="/portfolio/assets/ipynb/{{ file.name.split('.')[0] }}">{{ file.name }}</a></li>
-            {% endfor %}
-        </ul>
+        <main>
+            <h2>Jupyter Notebooks</h2>
+            <ul class="notebook-list">
+                {% for file in listIpynb %}
+                    <li>
+                        <a href="/portfolio/assets/ipynb/{{ file.name.split('.')[0] }}/">
+                            <span>{{ file.name }}</span>
+                            <span class="view-tag">&rarr;</span>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </main>
         {% include "footer.njk" %}
     </div>
 </body>
