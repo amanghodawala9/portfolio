@@ -1,0 +1,74 @@
+---
+pagination:
+  data: notebooks
+  size: 1
+  alias: notebook
+permalink: "work/{{ notebook.slug }}/"
+layout: layout.njk
+eleventyComputed:
+  title: "{{ notebook.title }}"
+---
+
+<article class="notebook-article">
+    <div class="notebook-nav">
+        <a href="{{ '/work/' | url }}" class="back-link">&larr; Back to Work</a>
+    </div>
+
+    <header class="notebook-header">
+        <h1 class="notebook-title">{{ notebook.title }}</h1>
+        <div class="notebook-meta">
+            <span>{{ notebook.cellCount }} cells</span>
+            <span class="meta-dot">&bull;</span>
+            <span>Jupyter Notebook</span>
+        </div>
+    </header>
+
+    <div class="notebook-cells">
+        {% for cell in notebook.cells %}
+            {% if cell.type == "markdown" %}
+                <div class="nb-cell nb-cell-markdown">
+                    {{ cell.html | safe }}
+                </div>
+            {% elif cell.type == "code" %}
+                <div class="nb-cell nb-cell-code">
+                    <div class="nb-input-section">
+                        {% if cell.execution_count %}
+                            <span class="nb-prompt">In [{{ cell.execution_count }}]:</span>
+                        {% else %}
+                            <span class="nb-prompt">In [ ]:</span>
+                        {% endif %}
+                        <div class="nb-code-container">
+                            <pre class="nb-code-block language-python"><code class="language-python">{{ cell.highlightedSource | safe }}</code></pre>
+                        </div>
+                    </div>
+
+                    {% if cell.outputs and cell.outputs.length %}
+                        <div class="nb-outputs-section">
+                            {% for out in cell.outputs %}
+                                {% if out.type == "text" %}
+                                    <div class="nb-output-block nb-output-text-block">
+                                        <pre class="nb-output-text"><code>{{ out.text }}</code></pre>
+                                    </div>
+                                {% elif out.type == "image" %}
+                                    <div class="nb-output-block nb-output-image-block">
+                                        <img src="{{ out.src }}" alt="Cell Output Plot" class="nb-output-image" loading="lazy">
+                                    </div>
+                                {% elif out.type == "html" %}
+                                    <div class="nb-output-block nb-output-html-block">
+                                        <div class="nb-table-scroll">
+                                            {{ out.html | safe }}
+                                        </div>
+                                    </div>
+                                {% elif out.type == "error" %}
+                                    <div class="nb-output-block nb-output-error-block">
+                                        <pre class="nb-output-error"><code>{{ out.text }}</code></pre>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</article>

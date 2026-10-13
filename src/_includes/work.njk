@@ -12,6 +12,14 @@
         <main>
             <h2>Jupyter Notebooks</h2>
             <ul class="notebook-list">
+                {% for nb in notebooks %}
+                    <li>
+                        <a href="{{ nb.url | url }}">
+                            <span>{{ nb.title }}</span>
+                            <span class="view-tag">&rarr;</span>
+                        </a>
+                    </li>
+                {% endfor %}
                 {% for file in listIpynb %}
                     <li>
                         <a href="/portfolio/assets/ipynb/{{ file.name.split('.')[0] }}/">
