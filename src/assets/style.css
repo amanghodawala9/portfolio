@@ -2,9 +2,9 @@
     --bg: #ffffff;
     --text: #1a1a1a;
     --text-muted: #666666;
-    --border: #e5e5e5;
-    --surface: #f9f9f9;
-    --surface-hover: #f0f0f0;
+    --border: #d0d7de;
+    --surface: #f6f8fa;
+    --surface-hover: #eaeef2;
 
     /* Syntax Highlighting Tokens (Light) */
     --syntax-comment: #6e7781;
@@ -22,9 +22,9 @@
         --bg: #121212;
         --text: #ededed;
         --text-muted: #8c8c8c;
-        --border: #262626;
-        --surface: #1a1a1a;
-        --surface-hover: #242424;
+        --border: #30363d;
+        --surface: #161b22;
+        --surface-hover: #21262d;
 
         /* Syntax Highlighting Tokens (Dark) */
         --syntax-comment: #8b949e;
@@ -194,7 +194,7 @@ ul li {
 
 .notebook-list li a:hover {
     background-color: var(--surface-hover);
-    border-color: var(--text-muted);
+    border-color: var(--text);
     opacity: 1;
 }
 
@@ -257,7 +257,7 @@ ul li {
 .notebook-cells {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.75rem;
     width: 100%;
     min-width: 0;
 }
@@ -298,9 +298,10 @@ ul li {
 .nb-prompt {
     display: block;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    font-size: 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 500;
     color: var(--text-muted);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.35rem;
     user-select: none;
 }
 
@@ -316,7 +317,7 @@ ul li {
 
 .nb-code-block {
     margin: 0;
-    padding: 0.85rem 1rem;
+    padding: 0.9rem 1.15rem;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -397,10 +398,10 @@ ul li {
 }
 
 .nb-outputs-section {
-    margin-top: 0.65rem;
+    margin-top: 0.75rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.65rem;
     width: 100%;
     min-width: 0;
 }
@@ -412,14 +413,16 @@ ul li {
 }
 
 .nb-output-text-block {
-    border-left: 2px solid var(--border);
-    padding-left: 0.75rem;
-    margin-left: 0.25rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--text-muted);
+    border-radius: 6px;
+    padding: 0.65rem 0.9rem;
 }
 
 .nb-output-text {
     margin: 0;
-    padding: 0.25rem 0;
+    padding: 0;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
@@ -479,7 +482,7 @@ ul li {
 .nb-output-error {
     background-color: var(--surface);
     border: 1px solid var(--border);
-    border-left: 3px solid var(--text-muted);
+    border-left: 3px solid #cf222e;
     border-radius: 6px;
     padding: 0.75rem 1rem;
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
