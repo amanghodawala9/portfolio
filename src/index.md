@@ -7,4 +7,4 @@ layout: layout.njk
 
 Hi, I’m Aman. I’m a Computer Engineer. learning stuff breaking stuff :)
 
-![Cat](/portfolio/assets/cat-pfp.png)
+![Profile Picture](/portfolio/assets/my-pfp.jpg)
